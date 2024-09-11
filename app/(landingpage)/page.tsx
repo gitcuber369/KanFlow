@@ -24,7 +24,7 @@ function LandingPage() {
           headingFont.className
         )}
       >
-        <div className="mb-4 flex items-centre p-3 shadow-sm border bg-violet-200 text-violet-700 rounded-full">
+        <div className="mb-4 flex items-centre p-3 shadow-sm border bg-violet-200 text-violet-700 rounded-full uppercase">
           <Medal className="h-6 w-6 mr-2" />
           No. 1 Task Manager
         </div>
