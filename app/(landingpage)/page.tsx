@@ -5,7 +5,6 @@ import { Poppins } from "next/font/google";
 import Link from "next/link";
 import React from "react";
 import { cn } from "@/lib/utils";
-
 const headingFont = localFont({
   src: "../../public/font/font.woff2",
 });
@@ -46,7 +45,7 @@ function LandingPage() {
         the way your team works is unique - accomplish it all with KanFlow.
       </div>
       <Button className="mt-6" asChild>
-        <Link href={"/"}>Get KanFlow for free 🎉</Link>
+        <Link href={"/sign-up"}>Get KanFlow for free 🎉</Link>
       </Button>
     </div>
   );
