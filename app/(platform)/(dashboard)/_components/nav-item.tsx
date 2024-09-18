@@ -1,15 +1,17 @@
 "use client";
 
+import { useRouter, usePathname } from "next/navigation";
+import Image from "next/image";
+import { Activity, CreditCard, Layout, Settings } from "lucide-react";
+
+import { cn } from "@/lib/utils";
 import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { Activity, CreditCard, Layout, Settings } from "lucide-react";
-import Image from "next/image";
-import { usePathname, useRouter } from "next/navigation";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export type Organization = {
   id: string;
@@ -18,19 +20,19 @@ export type Organization = {
   name: string;
 };
 
-interface NavItemsProps {
+interface NavItemProps {
   isExpanded: boolean;
   isActive: boolean;
-  organization: any;
+  organization: Organization;
   onExpand: (id: string) => void;
 }
 
-export const NavItems = ({
+export const NavItem = ({
   isExpanded,
   isActive,
   organization,
   onExpand,
-}: NavItemsProps) => {
+}: NavItemProps) => {
   const router = useRouter();
   const pathname = usePathname();
 
@@ -67,7 +69,7 @@ export const NavItems = ({
         onClick={() => onExpand(organization.id)}
         className={cn(
           "flex items-center gap-x-2 p-1.5 text-neutral-700 rounded-md hover:bg-neutral-500/10 transition text-start no-underline hover:no-underline",
-          isActive && !!isExpanded && "bg-sky-500/10 text-sky-700"
+          isActive && !isExpanded && "bg-sky-500/10 text-sky-700"
         )}
       >
         <div className="flex items-center gap-x-2">
@@ -92,7 +94,7 @@ export const NavItems = ({
               "w-full font-normal justify-start pl-10 mb-1",
               pathname === route.href && "bg-sky-500/10 text-sky-700"
             )}
-            variant={"ghost"}
+            variant="ghost"
           >
             {route.icon}
             {route.label}
@@ -100,5 +102,16 @@ export const NavItems = ({
         ))}
       </AccordionContent>
     </AccordionItem>
+  );
+};
+
+NavItem.Skeleton = function SkeletonNavItem() {
+  return (
+    <div className="flex items-center gap-x-2">
+      <div className="w-10 h-10 relative shrink-0">
+        <Skeleton className="h-full w-full absolute" />
+      </div>
+      <Skeleton className="h-10 w-full" />
+    </div>
   );
 };
