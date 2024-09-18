@@ -1,6 +1,6 @@
 import { OrganizationList } from "@clerk/nextjs";
 
-export default function CreateOrganization() {
+export default function CreateOrganizationPage() {
   return (
     <OrganizationList
       hidePersonal
