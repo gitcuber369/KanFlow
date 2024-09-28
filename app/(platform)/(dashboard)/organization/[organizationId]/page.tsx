@@ -1,5 +1,16 @@
 const OrganizationIdPage = () => {
-  return <div className="w-full mb-20">Organization</div>;
+  return (
+    <div className="w-full mb-20">
+      <form action="">
+        <input
+          type="text"
+          required
+          name="text"
+          placeholder="some usual text here"
+        />
+      </form>
+    </div>
+  );
 };
 
 export default OrganizationIdPage;
