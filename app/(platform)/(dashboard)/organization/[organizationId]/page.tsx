@@ -7,6 +7,7 @@ const OrganizationIdPage = () => {
           required
           name="text"
           placeholder="some usual text here"
+          className="border-slate-500 border p-1 rounded-sm"
         />
       </form>
     </div>

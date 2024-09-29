@@ -1,3 +1,5 @@
+"use client";
+
 import { createBoard } from "@/actions/creat-board";
 import FormInput from "@/components/form/form-input";
 import { useAction } from "@/hooks/use-action";
