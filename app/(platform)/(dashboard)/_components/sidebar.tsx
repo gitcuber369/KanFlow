@@ -58,6 +58,11 @@ export const Sidebar = ({ storageKey = "t-sidebar-state" }: SidebarProps) => {
           <NavItem.Skeleton />
           <NavItem.Skeleton />
           <NavItem.Skeleton />
+          <NavItem.Skeleton />
+          <NavItem.Skeleton />
+          <NavItem.Skeleton />
+          <NavItem.Skeleton />
+          <NavItem.Skeleton />
         </div>
       </>
     );

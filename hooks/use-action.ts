@@ -1,5 +1,6 @@
+import { useState, useCallback } from "react";
+
 import { ActionState, FieldErrors } from "@/lib/create-safe-actions";
-import { useCallback, useState } from "react";
 
 type Action<TInput, TOutput> = (
   data: TInput
@@ -19,8 +20,8 @@ export const useAction = <TInput, TOutput>(
     FieldErrors<TInput> | undefined
   >(undefined);
   const [error, setError] = useState<string | undefined>(undefined);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const [data, setData] = useState<TOutput | undefined>(undefined);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const execute = useCallback(
     async (input: TInput) => {
@@ -33,9 +34,7 @@ export const useAction = <TInput, TOutput>(
           return;
         }
 
-        if (result.fieldErrors) {
-          setFieldErrors(result.fieldErrors);
-        }
+        setFieldErrors(result.fieldErrors);
 
         if (result.error) {
           setError(result.error);
@@ -55,8 +54,8 @@ export const useAction = <TInput, TOutput>(
   );
 
   return {
-    fieldErrors,
     execute,
+    fieldErrors,
     error,
     data,
     isLoading,
