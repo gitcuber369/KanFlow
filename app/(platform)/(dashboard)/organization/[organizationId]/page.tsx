@@ -1,15 +1,15 @@
+import { Separator } from "@/components/ui/separator";
+import { Info } from "./_components/info";
+import { BoardList } from "./_components/board-list";
+
 const OrganizationIdPage = () => {
   return (
     <div className="w-full mb-20">
-      <form action="">
-        <input
-          type="text"
-          required
-          name="text"
-          placeholder="some usual text here"
-          className="border-slate-500 border p-1 rounded-sm"
-        />
-      </form>
+      <Info />
+      <Separator className="my-4" />
+      <div className="px-2 md:px-4">
+        <BoardList />
+      </div>
     </div>
   );
 };
